@@ -21,7 +21,7 @@ let myCurrentJob = 'Teacher'; // 좋은 예
 
 let job1 = 'programmer';
 let job2 = 'teacher'; // 나쁜 예
-*/
+
 
 
 let javascriptIsFun = true;
@@ -43,3 +43,15 @@ year = 1991;
 console.log(typeof year);
 
 console.log(typeof null); //object
+*/
+
+let age = 30;
+age = 31;
+
+const birthYear = 1991;
+// birthYear = 1990;
+
+// const job; 
+
+var job = 'programmer';
+job = 'teacher';
