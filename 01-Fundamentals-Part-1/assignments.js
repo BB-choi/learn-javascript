@@ -13,3 +13,14 @@ console.log(typeof isIsland);
 console.log(typeof population);
 console.log(typeof country);
 console.log(typeof language);
+
+console.log(population / 2);
+population++;
+
+//const finlandPopulation = 6;
+console.log(population > 6);
+//const avgPopulation = 33;
+console.log(population < 33);
+
+const description = country + " is in " + continent + ", and its " + population + " million people speak " + language
+console.log(description);
