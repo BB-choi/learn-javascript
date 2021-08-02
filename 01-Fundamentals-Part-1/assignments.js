@@ -33,7 +33,7 @@ if (population > 33) {
     console.log(
         `${country}'s population is ${33 - population} million below average.`
     );
-} */
+}
 
 const numNeibours = Number(
     prompt('How many neighbour countries does your country have?')
@@ -44,4 +44,14 @@ if (numNeibours === 1)
 else if (numNeibours > 1)
     console.log('More than 1 border');
 else
-    console.log('No borders');
+    console.log('No borders'); */
+
+const country = "Republic of korea";
+let population = 51;
+const isIsland = false;
+const language = "Korean";
+
+if (language === "English" && population < 50 && !isIsland)
+    console.log(`You should live in ${country} :)`)
+else
+    console.log(`${country} does not meet your criteria :(`)
