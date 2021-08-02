@@ -1,4 +1,4 @@
-const country = "Republic of korea";
+/* const country = "Republic of korea";
 const continent = "Asia";
 let population = 51;
 
@@ -33,4 +33,15 @@ if (population > 33) {
     console.log(
         `${country}'s population is ${33 - population} million below average.`
     );
-}
+} */
+
+const numNeibours = Number(
+    prompt('How many neighbour countries does your country have?')
+);
+
+if (numNeibours === 1)
+    console.log('Only 1 border!');
+else if (numNeibours > 1)
+    console.log('More than 1 border');
+else
+    console.log('No borders');
