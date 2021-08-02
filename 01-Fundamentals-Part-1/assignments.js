@@ -54,7 +54,7 @@ const language = "Korean";
 if (language === "English" && population < 50 && !isIsland)
     console.log(`You should live in ${country} :)`)
 else
-    console.log(`${country} does not meet your criteria :(`) */
+    console.log(`${country} does not meet your criteria :(`) 
 
 const language = "Korean";
 
@@ -77,4 +77,10 @@ switch (language) {
         break;
     default:
         console.log('Great language too :D');
-}
+} */
+const country = "Republic of korea";
+let population = 51;
+
+console.log(
+    `${country}'s population is ${population > 33 ? 'above' : 'below'} average.`
+);
