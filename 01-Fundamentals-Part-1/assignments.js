@@ -22,5 +22,7 @@ console.log(population > 6);
 //const avgPopulation = 33;
 console.log(population < 33);
 
-const description = country + " is in " + continent + ", and its " + population + " million people speak " + language
+// const description = country + " is in " + continent + ", and its " + population + " million people speak " + language
+
+const description = `${country} is in ${continent}, and its ${population} million people speak ${language}.`;
 console.log(description);
