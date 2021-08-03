@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 function describeCountry(country, population, capitalCity) {
     return `${country} has ${population} million people and its capital city is ${capitalCity}`;
 }
@@ -10,4 +10,16 @@ const descPortugal = describeCountry('Portugal', 10, 'Lisbon');
 
 console.log(descKorea);
 console.log(descGermany);
-console.log(descPortugal);
+console.log(descPortugal);*/
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+}
+
+const percentageOfWorld2 = function (population) {
+    return (population / 7900) * 100;
+}
+
+const Korea1 = percentageOfWorld1(51);
+const Korea2 = percentageOfWorld2(51);
+console.log(Korea1, Korea2);
