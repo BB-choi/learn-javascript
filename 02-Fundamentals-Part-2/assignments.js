@@ -22,4 +22,7 @@ const percentageOfWorld2 = function (population) {
 
 const Korea1 = percentageOfWorld1(51);
 const Korea2 = percentageOfWorld2(51);
-console.log(Korea1, Korea2);
+
+const percentageOfWorld3 = population => (population / 7900) * 100;
+const Korea3 = percentageOfWorld3(51);
+console.log(Korea1, Korea2, Korea3);
