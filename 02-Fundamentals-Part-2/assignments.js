@@ -10,7 +10,7 @@ const descPortugal = describeCountry('Portugal', 10, 'Lisbon');
 
 console.log(descKorea);
 console.log(descGermany);
-console.log(descPortugal);*/
+console.log(descPortugal);
 
 function percentageOfWorld1(population) {
     return (population / 7900) * 100;
@@ -25,4 +25,16 @@ const Korea2 = percentageOfWorld2(51);
 
 const percentageOfWorld3 = population => (population / 7900) * 100;
 const Korea3 = percentageOfWorld3(51);
-console.log(Korea1, Korea2, Korea3);
+console.log(Korea1, Korea2, Korea3); */
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+}
+
+const describePopulation = function (country, population) {
+    const percentageOfWorld = percentageOfWorld1(population);
+    return `${country} has ${population} million people, which is about ${percentageOfWorld}% of the world.`;
+};
+
+console.log(describePopulation('Korea', 51));
+console.log(describePopulation('China', 1441));
