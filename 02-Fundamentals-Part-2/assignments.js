@@ -25,7 +25,7 @@ const Korea2 = percentageOfWorld2(51);
 
 const percentageOfWorld3 = population => (population / 7900) * 100;
 const Korea3 = percentageOfWorld3(51);
-console.log(Korea1, Korea2, Korea3); */
+console.log(Korea1, Korea2, Korea3);
 
 function percentageOfWorld1(population) {
     return (population / 7900) * 100;
@@ -37,4 +37,18 @@ const describePopulation = function (country, population) {
 };
 
 console.log(describePopulation('Korea', 51));
-console.log(describePopulation('China', 1441));
+console.log(describePopulation('China', 1441)); */
+
+function percentageOfWorld1(population) {
+    return (population / 7900) * 100;
+}
+const populations = [51, 10, 20, 30];
+console.log(populations.length === 4);
+
+const percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[3])
+];
+console.log(percentages);
