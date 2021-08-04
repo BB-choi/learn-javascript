@@ -37,7 +37,7 @@ const describePopulation = function (country, population) {
 };
 
 console.log(describePopulation('Korea', 51));
-console.log(describePopulation('China', 1441)); */
+console.log(describePopulation('China', 1441));
 
 function percentageOfWorld1(population) {
     return (population / 7900) * 100;
@@ -51,4 +51,18 @@ const percentages = [
     percentageOfWorld1(populations[2]),
     percentageOfWorld1(populations[3])
 ];
-console.log(percentages);
+console.log(percentages); */
+
+const neighbours = ['China', 'Russia', 'Japan'];
+neighbours.push('Utopia');
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (!neighbours.includes('Germany'))
+    console.log('Probably not a central European country :D');
+
+// const numJapan = neighbours.indexOf('Japan');
+neighbours[neighbours.indexOf('Japan')] = 'Country';
+console.log(neighbours);
