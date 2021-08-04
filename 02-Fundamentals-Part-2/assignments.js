@@ -51,7 +51,7 @@ const percentages = [
     percentageOfWorld1(populations[2]),
     percentageOfWorld1(populations[3])
 ];
-console.log(percentages); */
+console.log(percentages);
 
 const neighbours = ['China', 'Russia', 'Japan'];
 neighbours.push('Utopia');
@@ -65,4 +65,13 @@ if (!neighbours.includes('Germany'))
 
 // const numJapan = neighbours.indexOf('Japan');
 neighbours[neighbours.indexOf('Japan')] = 'Country';
-console.log(neighbours);
+console.log(neighbours); */
+
+const myCountry = {
+    country: 'Korea',
+    capital: 'Seoul',
+    language: 'Korean',
+    population: 51,
+    neighbours: ['China', 'Russia', 'Japan']
+};
+console.log(myCountry);
