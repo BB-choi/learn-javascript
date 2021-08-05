@@ -27,7 +27,7 @@ scoreKoalas = calcAverage(23, 34, 27);
 
 console.log(scoreDolphins, scoreKoalas);
 
-checkWinner(scoreDolphins, scoreKoalas); */
+checkWinner(scoreDolphins, scoreKoalas); 
 
 // Coding Challenge #2
 
@@ -51,3 +51,34 @@ const totals = [
     bills[2] + tips[2]
 ];
 console.log(totals);
+*/
+
+// Coding Challenge #3
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2
+        return this.bmi;
+    }
+};
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2
+        return this.bmi;
+    }
+};
+
+console.log(mark.calcBMI(), john.calcBMI());
+
+if (mark.bmi > john.bmi) {
+    console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higer than ${john.fullName}'s BMI (${john.bmi}) !`);
+} else if (john.bmi > mark.bmi) {
+    console.log(`${john.fullName}'s BMI (${john.bmi}) is higer than ${mark.fullName}'s BMI (${mark.bmi}) !`);
+}
