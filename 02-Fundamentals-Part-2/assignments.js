@@ -65,7 +65,7 @@ if (!neighbours.includes('Germany'))
 
 // const numJapan = neighbours.indexOf('Japan');
 neighbours[neighbours.indexOf('Japan')] = 'Country';
-console.log(neighbours); 
+console.log(neighbours);
 
 const myCountry = {
     country: 'Korea',
@@ -85,7 +85,7 @@ console.log(myCountry.population);
 
 myCountry['population'] -= 2;
 console.log(myCountry.population);
-*/
+
 
 const myCountry = {
     country: 'Korea',
@@ -109,3 +109,7 @@ myCountry.describe();
 myCountry.checkIsland();
 // console.log(myCountry.checkIsland());
 console.log(myCountry.isIsland);
+*/
+
+for (let voter = 1; voter <= 50; voter++)
+    console.log(`Voter number ${voter} is currently voting 🗳`);
