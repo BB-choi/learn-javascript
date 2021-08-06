@@ -113,7 +113,7 @@ console.log(myCountry.isIsland);
 
 for (let voter = 1; voter <= 50; voter++)
     console.log(`Voter number ${voter} is currently voting 🗳`);
-*/
+
 
 const populations = [51, 10, 20, 30];
 
@@ -135,3 +135,19 @@ for (let i = 0; i < populations.length; i++) {
 
 
 console.log(percentages, percentages2);
+*/
+
+const listOfNeighbours = [
+    ['Canada', 'Mexico'],
+    ['Spain'],
+    ['Norway', 'Sweden', 'Russia']
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+    console.log(i + "----------------------");
+    console.log(listOfNeighbours[i]);
+
+    for (let j = 0; j < listOfNeighbours[i].length; j++) {
+        console.log(listOfNeighbours[i][j]);
+    }
+}
