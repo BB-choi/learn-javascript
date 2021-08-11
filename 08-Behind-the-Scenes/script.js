@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 function calcAge(birthYear) {
   const age = 2037 - birthYear;
   //   console.log(firstName);
@@ -39,3 +39,56 @@ const firstName = 'Jonas';
 calcAge(1991);
 // console.log(age); // Reference Error
 // printAge();
+*/
+
+// Variables
+console.log(me); // undefined
+// console.log(job); // ReferenceError: Cannot access 'job' before initialization, still in TDZ
+// console.log(year);
+
+var me = 'Jonas';
+let job = 'teacher';
+const year = 1991;
+
+// Functions
+console.log(addDecl(2, 3));
+// console.log(addExpr(2, 3)); // ReferenceError: Cannot access 'addExpr' before initialization
+// console.log(addArrow(2, 3));
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+// const variable, in TDZ
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+// const addArrow = (a, b) => a + b;
+
+//Uncaught TypeError: addExpr is not a function 👉 undefined
+// var addExpr = function (a, b) {
+//   return a + b;
+// };
+
+console.log(addArrow); // undefined
+var addArrow = (a, b) => a + b;
+
+// Exmaple
+
+console.log(numProducts);
+if (!numProducts) deleteShoppingCart(); // numProducts === undefined
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
+
+var x = 1; // create a property on the window object
+let y = 2; // NOT create
+const z = 3; // NOT create
+
+console.log(x === window.x); // TRUE x is a property of the window object.
+console.log(x === window.y); // false
+console.log(x === window.z); // false
