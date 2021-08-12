@@ -92,7 +92,7 @@ const z = 3; // NOT create
 console.log(x === window.x); // TRUE x is a property of the window object.
 console.log(x === window.y); // false
 console.log(x === window.z); // false
-*/
+
 
 console.log(this); // window
 
@@ -101,7 +101,7 @@ const calcAge = function (birthYear) {
   console.log(this);
 };
 
-calcAge(1991); // regular function 👉 undefined (in strict mode)
+calcAge(1991); // in regular function, THIS 👉 undefined (in strict mode)
 
 const calcAgeArrow = birthYear => {
   console.log(2037 - birthYear);
@@ -128,3 +128,60 @@ matilda.calcAge(); // point matila
 
 const f = jonas.calcAge;
 f(); // regular function
+*/
+
+var firstName = 'Matilda'; // window.firstName
+
+const jonas = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this); // object jonas
+    console.log(2037 - this.year);
+
+    // Solution 1
+    // const self = this;
+    // const isMillenial = function () {
+    //   console.log(this); // undefined
+    //   console.log(self); // self or that
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    //   // console.log(this.year >= 1981 && this.year <= 1996);
+    // };
+
+    // Solution 2
+    const isMillenial = () => {
+      console.log(this); // Arrow function uses the this keyword from it's parent scope
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+
+    isMillenial(); // in regular function, THIS 👉 undefined (in strict mode)
+  },
+
+  greet: () => {
+    console.log(this); // parent 👉 window
+    console.log(`Hey ${this.firstName}`); // this 👉 window, 👉 Hey Matilda
+  },
+  // greet: function () {
+  //   console.log(this);
+  //   console.log(`Hey ${this.firstName}`); // Hey Jonas
+  // },
+};
+jonas.greet();
+jonas.calcAge(); // Cannot read property 'year' of undefined
+
+// arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+// arguments keyword exist only in regular functions
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+
+addArrow(2, 5, 8); // ReferenceError: arguments is not defined
