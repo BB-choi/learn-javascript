@@ -185,7 +185,7 @@ var addArrow = (a, b) => {
 };
 
 addArrow(2, 5, 8); // ReferenceError: arguments is not defined
-*/
+
 
 let age = 30;
 let oldAge = age;
@@ -203,3 +203,42 @@ friend.age = 27;
 
 console.log('Friend', friend);
 console.log('Me', me);
+*/
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica; // NOT a new object in the heap
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage', jessica);
+console.log('After marriage', marriedJessica);
+
+// marriedJessica = {}; // not allowed
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+console.log('Before marriage', jessica2);
+console.log('After marriage', jessicaCopy);
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+console.log(jessica2);
+console.log(jessicaCopy);
