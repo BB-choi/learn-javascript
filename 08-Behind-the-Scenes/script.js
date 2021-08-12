@@ -39,7 +39,7 @@ const firstName = 'Jonas';
 calcAge(1991);
 // console.log(age); // Reference Error
 // printAge();
-*/
+
 
 // Variables
 console.log(me); // undefined
@@ -92,3 +92,39 @@ const z = 3; // NOT create
 console.log(x === window.x); // TRUE x is a property of the window object.
 console.log(x === window.y); // false
 console.log(x === window.z); // false
+*/
+
+console.log(this); // window
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAge(1991); // regular function 👉 undefined (in strict mode)
+
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAgeArrow(1991); // parent scope's this keyword 👉 window :97
+
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this); // object jonas
+    console.log(2037 - this.year);
+  },
+};
+jonas.calcAge(); // point jonas
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = jonas.calcAge;
+matilda.calcAge(); // point matila
+
+const f = jonas.calcAge;
+f(); // regular function
