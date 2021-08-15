@@ -59,6 +59,49 @@ const restaurant = {
   },
 };
 
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+console.log(new Set());
+
+console.log(ordersSet.size); // NOT length
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+// console.log(ordersSet[0]); // undefined, NO indexes
+// ordersSet.clear();
+// console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = new Set(staff); // pass iterable
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(new Set(staff).size);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+
+console.log(new Set('jonasschmedtmann').size);
+
+/*
+///////////////////////////////////////
+// Looping Objects : Object Keys, Values, and Entries
+
 // Property NAMES
 const properties = Object.keys(openingHours);
 console.log(properties);
@@ -87,7 +130,7 @@ for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
 
-/*
+
 ///////////////////////////////////////
 // Optional Chaining
 
