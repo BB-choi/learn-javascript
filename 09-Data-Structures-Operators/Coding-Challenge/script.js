@@ -41,6 +41,7 @@ const game = {
   },
 };
 
+/*
 // Coding Challenge #1
 
 // 1.
@@ -89,3 +90,43 @@ printGoals(...game.scored);
 
 team1 < team2 && console.log('team1 is more likely to WIN');
 team1 > team2 && console.log('team2 is more likely to WIN');
+*/
+
+// Coding Challenge #2
+
+// 1.
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
+  // console.log(player);
+}
+
+// 2.
+const oddsValue = Object.values(game.odds);
+// let sum = 0;
+let average = 0;
+for (const odd of oddsValue) {
+  // sum += odd;
+  average += odd;
+}
+// console.log(sum);
+// console.log(sum / oddsValue.length);
+average /= oddsValue.length;
+console.log(average);
+
+// 3.
+const odds = Object.entries(game.odds);
+for (const [team, odd] of odds) {
+  // console.log(team, odd);
+  // console.log(`Odd of ${'victory ' + game[team] || 'draw'}: ${odd}`);
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
+// BONUS
+const scorers = {};
+for (const player of game.scored) {
+  // if (scorers[player] && scorers[player] === 1) scorers[player] += 1;
+  // else scorers[player] = 1;
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
