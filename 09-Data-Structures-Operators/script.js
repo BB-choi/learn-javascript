@@ -54,6 +54,24 @@ const restaurant = {
   },
 };
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) {
+  // console.log(item);
+  console.log(`${item[0] + 1} : ${item[1]}`);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1} : ${el}`);
+}
+
+// console.log(menu.entries());
+// console.log([...menu.entries()]);
+
+/*
+///////////////////////////////////////
+// The Nullish Coalescing Operator (??)
 restaurant.numGuests = 0; // falsy value
 const guest = restaurant.numGuests || 10;
 console.log(guest);
@@ -62,10 +80,10 @@ console.log(guest);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 
-/*
+
 ///////////////////////////////////////
-// Short Circuiting (&& and ||
-)
+// Short Circuiting (&& and ||)
+
 console.log('---- OR ----');
 // Use ANY data type, return ANY data type. short-circuiting
 console.log(3 || 'Jonas');
