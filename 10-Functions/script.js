@@ -113,7 +113,7 @@ greet('Hello')('Jonas');
 // Challenge
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi!')('Jonas');
-*/
+
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
@@ -221,3 +221,26 @@ console.log(addVAT2(23));
 const addTax3 = rate => value => value + value * rate;
 const addVAT3 = addTax3(0.1);
 console.log(addVAT3(200));
+*/
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+// IIFE
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})(); // function expression ()
+
+// console.log(isPrivate); // CAN'T access
+
+(() => console.log('This will ALSO never run again'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+// console.log(isPrivate); // CAN'T access
+console.log(notPrivate); // accessible
