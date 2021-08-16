@@ -165,3 +165,59 @@ book.apply(swiss, flightData); // second argument 👉 array of data
 
 book.call(swiss, ...flightData);
 console.log(swiss);
+
+// Bind method
+// book.call(eurowings, 23, 'Sarah williams');
+
+const bookEW = book.bind(eurowings);
+// NOT call book function, return new function 'this' set to 'eurowings'
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+console.log(eurowings);
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Jonas Schmedtmann');
+bookEW23('Martha Cooper');
+
+// With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+// lufthansa.buyPlane();
+
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane);
+// this 👉 <button class="buy">Buy new plane 🛩</button>, this.planes 👉 NaN
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application // We can preset parameters
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23); // first argument of bind 👉 this keywords
+// addVAT = value => value + value * 0.23;
+
+console.log(addVAT(100));
+
+// Challenge
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
+
+const addTax3 = rate => value => value + value * rate;
+const addVAT3 = addTax3(0.1);
+console.log(addVAT3(200));
