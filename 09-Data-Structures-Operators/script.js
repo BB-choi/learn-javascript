@@ -59,6 +59,29 @@ const restaurant = {
   },
 };
 
+// console.log(flights.split('+'));
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  // console.log(flight.split(';'));
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(44);
+
+  console.log(output);
+}
+
+/*
+///////////////////////////////////////
+// Working With Strings - Part 3
+
+
 // Split and join
 
 console.log('a+very+nice+string'.split('+'));
@@ -116,7 +139,7 @@ planesInLine(5);
 planesInLine(3);
 planesInLine(12);
 
-/*
+
 ///////////////////////////////////////
 // Working With Strings - Part 2
 
