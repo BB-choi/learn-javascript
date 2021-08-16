@@ -59,6 +59,51 @@ const restaurant = {
   },
 };
 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]); // A
+console.log(plane[1]); // 3 (string)
+console.log(plane[2]); // 2 (string)
+console.log('B737'[0]); // B
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r')); // 6, first occurance
+console.log(airline.lastIndexOf('r')); //10
+console.log(airline.indexOf('portugal')); // -1 Not be found
+console.log(airline.indexOf('Portugal')); // 8
+
+// substring
+console.log(airline.slice(4)); // (begin parameter) return new string
+console.log(airline.slice(4, 7)); // (begin, end 👉 not included), length: end - begin like 7-4
+
+console.log(airline.slice(0, airline.indexOf(' '))); // TAP
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Portugal
+
+console.log(airline.slice(-2)); // al
+console.log(airline.slice(1, -1)); // AP Air Portuga
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat 😊');
+  else console.log('You got lucky 👏');
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas'));
+console.log(typeof new String('jonas')); // object (type coercion)
+
+console.log(typeof new String('jonas').slice(1)); // string
+
+/*
+///////////////////////////////////////
+// Maps: Iteration
+
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
