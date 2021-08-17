@@ -221,7 +221,7 @@ console.log(addVAT2(23));
 const addTax3 = rate => value => value + value * rate;
 const addVAT3 = addTax3(0.1);
 console.log(addVAT3(200));
-*/
+
 
 const runOnce = function () {
   console.log('This will never run again');
@@ -244,3 +244,21 @@ runOnce();
 }
 // console.log(isPrivate); // CAN'T access
 console.log(notPrivate); // accessible
+*/
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker(); // 1 passengers
+booker(); // 2 passengers
+booker(); // 3 passengers
+
+console.dir(booker);
