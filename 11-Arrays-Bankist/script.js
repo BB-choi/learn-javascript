@@ -74,3 +74,37 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4)); // length : end parameter - start parameter
+console.log(arr.slice(-2));
+console.log(arr.slice(-1)); // last element
+console.log(arr.slice(1, -2));
+console.log(arr.slice());
+console.log([...arr]);
+
+// SPLICE
+// console.log(arr.splice(2));
+
+arr.splice(-1); // delete last element
+console.log(arr); // ["a", "b", "c", "d"]
+arr.splice(1, 2);
+console.log(arr); // ["a", "d"]
+
+// REVERSE
+arr = ['a', 'b', 'c', 'd', 'e'];
+
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse()); // ["f", "g", "h", "i", "j"]
+console.log(arr2); // ["f", "g", "h", "i", "j"]
+
+// CONCAT
+const letters = arr.concat(arr2);
+console.log(letters); // ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+console.log([...arr, ...arr2]); // ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+
+// JOIN
+console.log(letters.join(' - ')); // "a - b - c - d - e - f - g - h - i - j"
