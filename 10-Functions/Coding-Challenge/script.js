@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 // Coding Challenge #1
 
 const poll = {
@@ -53,3 +54,14 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 
 // const displayResults = poll.displayResults.bind(testData);
 // displayResults();
+*/
+
+// Coding Challenge #1
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue'; // closure
+  });
+})();
