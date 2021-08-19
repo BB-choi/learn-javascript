@@ -83,6 +83,36 @@ const displayMovements = function (movements) {
 displayMovements(account1.movements);
 // console.log(containerMovements);
 
+// const user = 'Steven Thomas Williams'; // stw
+// const username = user
+//   .toLowerCase()
+//   .split(' ')
+//   .map(function (name) {
+//     return name[0];
+//   })
+//   .join('');
+
+// const username = user
+//   .toLowerCase()
+//   .split(' ')
+//   .map(name => name[0])
+//   .join('');
+//
+// console.log(username);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+// console.log(createUsernames('Steven Thomas Williams'));
+createUsernames(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -179,7 +209,9 @@ currenciesUnique.forEach(function (value, _value, map) {
   // console.log(`${key}: ${value}`); // key is same as value
   console.log(`${value}: ${value}`); // _ means unnecessary, throwable variable (convention)
 });
-*/
+
+/////////////////////////////////////////////////
+// The map Method
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -214,3 +246,4 @@ const movementsDescriptions = movements.map(
 );
 
 console.log(movementsDescriptions);
+*/
