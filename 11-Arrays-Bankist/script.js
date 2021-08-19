@@ -61,6 +61,28 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  // .textContent = 0
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+    <div class="movements__row">
+        <div class="movements__type movements__type--${type}">
+          ${i + 1} ${type}
+        </div>
+        <div class="movements__value">${mov}</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+    // containerMovements.insertAdjacentHTML('beforeend', html);
+  });
+};
+displayMovements(account1.movements);
+// console.log(containerMovements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -134,7 +156,9 @@ movements.forEach(function (mov, i, arr) {
 // 1: function(450)
 // 2: function(400)
 // ...
-*/
+
+/////////////////////////////////////////////////
+// forEach With Maps and Sets
 
 // Map
 const currencies = new Map([
@@ -155,3 +179,4 @@ currenciesUnique.forEach(function (value, _value, map) {
   // console.log(`${key}: ${value}`); // key is same as value
   console.log(`${value}: ${value}`); // _ means unnecessary, throwable variable (convention)
 });
+*/
