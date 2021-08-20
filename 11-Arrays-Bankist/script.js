@@ -355,3 +355,8 @@ console.log(accounts);
 
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
+
+for (const account of accounts) {
+  if (account.owner === 'Jessica Davis') console.log(account);
+  // else console.log(account.owner);
+}
