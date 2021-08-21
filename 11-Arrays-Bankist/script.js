@@ -469,7 +469,7 @@ for (const account of accounts) {
   if (account.owner === 'Jessica Davis') console.log(account);
   // else console.log(account.owner);
 }
-*/
+
 
 console.log(movements);
 
@@ -491,3 +491,32 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+*/
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat()); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat()); // [Array(2), 3, 4, Array(2), 7, 8]
+console.log(arrDeep.flat(1)); // [Array(2), 3, 4, Array(2), 7, 8]
+console.log(arrDeep.flat(2)); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements); // [Array(8), Array(8), Array(8), Array(5)]
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// flat
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+// flatMap - only 1 level deep
+const overalBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance2);
