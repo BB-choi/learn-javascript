@@ -342,7 +342,7 @@ console.log((2.7).toFixed(0)); // '3', toFixed returns string
 console.log((2.7).toFixed(3)); // '2.700'
 console.log((2.345).toFixed(2)); // '2.35'
 console.log(+(2.345).toFixed(2)); // 2.35
-*/
+
 
 console.log(5 % 2); // 1
 console.log(5 / 2); // 2.5. 5 = 2 * 2 + 1
@@ -372,3 +372,43 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+*/
+
+console.log(2 ** 53 - 1); // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+console.log(2 ** 53 + 1); // 9007199254740992
+console.log(2 ** 53 + 0); // 9007199254740992
+console.log(2 ** 53 + 2); // 9007199254740996
+console.log(2 ** 53 + 3); // 9007199254740996
+console.log(2 ** 53 + 4); // 9007199254740996
+
+console.log(3123213213213213213213213123125445456646775); // 3.123213213213213e+42
+console.log(3123213213213213213213213123125445456646775n); // 3123213213213213213213213123125445456646775n
+console.log(BigInt(312321321321)); // 312321321321n
+
+// Operations
+console.log(10000n + 10000n); // 20000n
+console.log(432432453443654896845847878978978979n * 10000000n); // 4324324534436548968458478789789789790000000n
+
+// console.log(Math.sqrt(16n));
+
+const huge = 2321484958340598349580n;
+const num = 23;
+
+// console.log(huge * num); // Cannot mix BigInt and other types, use explicit conversions
+console.log(huge * BigInt(num)); // 53394154041833762040340n
+
+// Exceptions
+console.log(20n > 15); // true
+console.log(20n === 20); // false. DO NOT type coercion
+console.log(typeof 20n, typeof 20); // bigint number
+console.log(20n == 20); // true. type coercion
+console.log(20n == '20');
+
+console.log(huge + 'is REALLY big!!!'); // 2321484958340598349580is REALLY big!!!
+
+// Division
+console.log(10n / 3n); // 3n
+console.log(11n / 3n); // 3n
+
+console.log(10 / 3); //3.3333333333333335
