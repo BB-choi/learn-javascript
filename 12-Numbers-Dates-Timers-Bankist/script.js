@@ -286,15 +286,17 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add loan date
-    // currentAccount.movementsDates.push(new Date()); // object
-    currentAccount.movementsDates.push(new Date().toISOString()); // string
+      // Add loan date
+      // currentAccount.movementsDates.push(new Date()); // object
+      currentAccount.movementsDates.push(new Date().toISOString()); // string
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -546,7 +548,7 @@ const days1 = calcDaysPassed(
   // Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 );
 console.log(days1);
-*/
+
 
 const num = 36483334.23;
 
@@ -569,3 +571,48 @@ console.log(
   navigator.language,
   new Intl.NumberFormat(navigator.language, options).format(num)
 );
+*/
+
+// setTimeout
+const ingredients = ['olives', 'spinach'];
+setTimeout(() => console.log('Here is your pizza 🍕'), 3000);
+setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`),
+  3000,
+  'olives',
+  'spinach'
+);
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`),
+  3000,
+  ...ingredients
+);
+console.log('Waiting...');
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+// setInterval
+
+setInterval(() => {
+  const now = new Date();
+  console.log(now);
+}, 1000);
+
+// 00:00:00
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(
+//     `${now.getHours().toString().padStart(2, 0)}:${now
+//       .getMinutes()
+//       .toString()
+//       .padStart(2, 0)}:${now.getSeconds().toString().padStart(2, 0)}`
+//   );
+// }, 1000);
+
+// with Intl
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(
+//     new Intl.DateTimeFormat('ko-KR', { timeStyle: 'medium' }).format(now)
+//   );
+// }, 1000);
