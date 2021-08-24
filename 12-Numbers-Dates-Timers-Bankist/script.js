@@ -372,7 +372,7 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
-*/
+
 
 console.log(2 ** 53 - 1); // 9007199254740991
 console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
@@ -412,3 +412,40 @@ console.log(10n / 3n); // 3n
 console.log(11n / 3n); // 3n
 
 console.log(10 / 3); //3.3333333333333335
+*/
+
+// Create a date
+/*
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Aug 24 2021 13:37:42'));
+console.log(new Date('December 24, 2015'));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5)); // 10, November(11)
+console.log(new Date(2037, 10, 31)); // auto correct day, Nov 31(x), Dec 01
+console.log(new Date(2037, 10, 33));
+
+console.log(new Date(0)); // since beginning of unix time. milliseconds
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); // 3days, 24 hour, 60min, 60sec, 1000 ms, timestamp 259200000
+*/
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear()); // 2037
+console.log(future.getMonth()); // 10
+console.log(future.getDate());
+console.log(future.getDay()); // 4. day of the week, thursday
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString()); // '2037-11-19T06:23:00.000Z'
+console.log(future.getTime()); // 2142224580000
+
+console.log(new Date(2142224580000)); // 'Thu Nov 19 2037 15:23:00 GMT+0900 (한국 표준시)'
+
+console.log(Date.now()); // timestamp
+
+future.setFullYear(2040); // 1629781946381
+console.log(future); // Mon Nov 19 2040 15:23:00 GMT+0900 (한국 표준시)
