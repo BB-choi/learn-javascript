@@ -133,7 +133,7 @@ tabsContainer.addEventListener('click', function (e) {
 // Menu fade animation
 // const handleHover = function (e, opacity) {
 const handleHover = function (e) {
-  console.log(this, e.currentTarget);
+  // console.log(this, e.currentTarget);
 
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
@@ -185,6 +185,16 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 //     logo.style.opacity = 1;
 //   }
 // });
+
+// Sticky navigation
+const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
+
+window.addEventListener('scroll', function () {
+  // console.log(window.scrollY);
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
