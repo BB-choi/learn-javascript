@@ -93,6 +93,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  // Instance methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -116,6 +117,12 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log('Hey there 😉');
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996);
@@ -136,6 +143,7 @@ jessica.greet(); // Hey Jessica
 
 // const walter = new PersonCl('Walter', 1965);
 const walter = new PersonCl('Walter White', 1965);
+PersonCl.hey();
 
 const account = {
   owner: 'jonas',
@@ -155,3 +163,18 @@ console.log(account.latest);
 // account.latest(50); // error. latest is not a function
 account.latest = 50;
 console.log(account.movements);
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.hey = function () {
+  console.log('Hey there 😉');
+  console.log(this);
+};
+
+const jonas = new Person('Jonas', 1991);
+
+Person.hey();
+// jonas.hey(); // error.
