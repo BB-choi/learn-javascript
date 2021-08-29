@@ -81,7 +81,7 @@ const h1 = document.querySelector('h1');
 console.dir(h1); // __proto__ : HTMLHeadingElement, HTMLElement, Element, Node, EventTarget, Object
 
 console.dir(x => x + 1);
-*/
+
 
 // class expression
 // const PersonCl = class {};
@@ -202,3 +202,56 @@ console.log(steven.__proto__ === PersonProto); // true
 const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 1979);
 sarah.calcAge(); // 58
+*/
+
+///////////////////////////////////////
+// Inheritance Between "Classes": Constructor Functions
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  // this.firstName = firstName;
+  // this.birthYear = birthYear;
+  // Person(firstName, birthYear); // error. regular function call, this 👉 undeifined
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+// Linking prototypes
+Student.prototype = Object.create(Person.prototype);
+// Student.prototype = Person.prototype
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+console.log(mike);
+mike.introduce();
+mike.calcAge();
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student); // true
+console.log(mike instanceof Person); // true
+console.log(mike instanceof Object); // true
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
+
+console.dir(Student);
+
+console.log(mike.__proto__);
+console.log(mike.__proto__ === Student.prototype); // true
+console.log(mike.__proto__ === Person.prototype); // false
+
+console.log(Student.prototype.__proto__ === Person.prototype); // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
