@@ -419,7 +419,7 @@ class Account {
   }
 }
 
-const acc1 = new Account('Jonas', 'EUR', 1111, []);
+const acc1 = new Account('Jonas', 'EUR', 1111);
 console.log(acc1);
 
 // acc1._movements.push(250);
