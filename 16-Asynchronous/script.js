@@ -236,6 +236,7 @@ Promise.resolve('Resolved promise 2').then(res => {
 console.log('Test end');
 */
 
+/*
 const lotteryPromise = new Promise(function (resolve, reject) {
   console.log('Lottery draw is happening 💰');
   setTimeout(function () {
@@ -294,3 +295,54 @@ wait(1)
 
 Promise.resolve('abc').then(x => console.log(x));
 Promise.reject(new Error('Problem!')).catch(x => console.error(x));
+*/
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   //   position => console.log(position),
+    //   position => resolve(position),
+    // //   err => console.error(err)
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+// getPosition().then(pos => console.log(pos));
+
+const whereAmI = function () {
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+
+      return fetch(`https://geocode.xyz/${lat},${lng}?json=1`);
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Problem with geocoding (${response.status})`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data.prov);
+      console.log(`You are in ${data.city}, ${data.country}`);
+
+      //   return fetch(`https://restcountries.eu/rest/v2/name/${data.country}`);
+      return fetch(`https://restcountries.eu/rest/v2/alpha/${data.prov}`);
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Country not found (${res.status})`);
+      return res.json();
+    })
+    .then(data => {
+      //   renderCountry(data[0]);
+      renderCountry(data);
+      countriesContainer.style.opacity = 1;
+    })
+    .catch(err => {
+      console.error(`${err.message}`);
+    });
+};
+
+btn.addEventListener('click', whereAmI);
