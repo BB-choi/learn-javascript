@@ -28,7 +28,7 @@ add('bread', 5);
 add('apples', 2);
 
 console.log(cart);
-*/
+
 
 const ShoppingCart2 = (function () {
   const cart = [];
@@ -59,3 +59,15 @@ ShoppingCart2.addToCart('apple', 4);
 ShoppingCart2.addToCart('pizza', 2);
 console.log(ShoppingCart2); // private
 console.log(ShoppingCart2.shippingCost); // undefined
+*/
+
+// Export
+export.addToCart = function (product, quantity) {
+    cart.push({ product, quantity });
+    console.log(
+        `${quantity} ${product} added to cart (shipping cost  is ${shippingCost})`
+    );
+};
+
+// Import
+const {addToCart} = require('./shoppingCart.js');
