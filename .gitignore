@@ -3,3 +3,9 @@
 
 # dependencies
 node_modules/
+
+# parcel-bundler cache (https://parceljs.org/)
+.parcel-cache
+
+# Destribution / packaging
+dist/
