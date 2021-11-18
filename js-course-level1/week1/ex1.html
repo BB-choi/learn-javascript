@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h2>자바스크립트 연습장</h2>
+        <p id="demo">몇 시인가요?</p>
+    </body>
+    <!-- 
+        자바스크립트는 HTML문서를 동적으로 제어 할 수 있다.
+    <script>
+        var demo = document.getElementById("demo");
+        demo.innerHTML = Date();
+        demo.style.color = "red";
+        demo.style.background = "black";
+    </script> 
+    -->
+    <script>
+        var demo = document.getElementById("demo");
+        var size = 10;
+        function big() {
+            demo.style.fontSize = size + "px";
+            size = size + 1;
+        }
+        var tid = setInterval(big, 100);
+    </script>
+</html>
