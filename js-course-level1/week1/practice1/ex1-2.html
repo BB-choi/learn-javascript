@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- BMI를 계산하는 프로그램을 작성해 봅시다. -->
+        <script>
+            let kg = Number(prompt("몸무게를 입력하세요. (단위 : kg)"));
+            let cm = Number(prompt("키를 입력해주세요.")) / 100;
+            let bmi = kg / (cm * cm);
+            console.log(`당신의 BMI는 ${kg / (cm * cm)}`);
+        </script>
+    </body>
+</html>
