@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>반복문을 사용한 구구단 연습 (for)</h1>
+        <span>출력할 단 수 : </span>
+        <input type="text" id="num" value="" /><br />
+        <button onclick="runGugudan()">확인</button>
+        <div id="gugudan"></div>
+        <script>
+            const gugudanDiv = document.querySelector("#gugudan");
+            console.log(gugudanDiv);
+            function runGugudan(e) {
+                // e.preventDefault();
+                let N = document.getElementById("num").value;
+                /* 
+                gugudanDiv.insertAdjacentHTML(
+                    "afterbegin",
+                    `<h2>구구단 ${N}단</h2>`
+                );
+                for (let i = 1; i < 10; i++) {
+                    gugudanDiv.insertAdjacentHTML(
+                        "afterbegin",
+                        `${N} * ${i} = ${N * i}<br>`
+                    );
+                } */
+                // gugudanDiv.innertHTML = `<h2>구구단 ${N}단</h2>`;
+                for (let i = 1; i < 10; i++) {
+                    gugudanDiv.innerHTML += `${N} * ${i} = ${N * i}<br>`;
+                }
+                // document.write(`<h2>구구단 ${N}단</h2>`);
+                // for (let i = 1; i < 10; i++) {
+                //     document.write(`${N} * ${i} = ${N * i}<br>`);
+                // }
+            }
+            /* // let N = Number(prompt("몇 단을 출력할까요?"));
+
+            document.write(`<h2>구구단 ${N}단</h2>`);
+            // for반복문의 실행순서
+            // for (1; 2; 4) {
+            // 3
+            // }
+            for (let i = 1; i < 10; i++) {
+                document.write(`${N} * ${i} = ${N * i}<br>`);
+            } */
+        </script>
+    </body>
+</html>
