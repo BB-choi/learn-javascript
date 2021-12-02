@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>list of primes</h1>
+        <script>
+            let numbers = {};
+            numbers.all = [];
+            numbers.prime = [];
+            numbers.isPrime = function (number) {
+                let i = 2;
+                if (number < 2) {
+                    return 0;
+                }
+                while (i <= number / i) {
+                    if (number % i === 0) {
+                        return 0;
+                    }
+                    i++;
+                }
+                return 1;
+            };
+            numbers.addPrime = function () {
+                let numbers = this.all;
+                for (let i = 0; i < numbers.length; i++) {
+                    let number = numbers[i];
+                    if (this.isPrime(number)) {
+                        this.prime.push(number);
+                    }
+                }
+            };
+            numbers.getAllPrimes = function () {
+                let result = "";
+                result += "전체 소수를 출력합니다.<br>";
+                for (let i = 0; i < this.prime.length; i++) {
+                    result += `${i + 1}번째 소수 : ${this.prime[i]}<br>`;
+                }
+                return result;
+            };
+            numbers.addAll = function (max_num) {
+                for (let i = 1; i <= max_num; i++) {
+                    this.all.push(i);
+                }
+            };
+
+            numbers.addAll(10000);
+            numbers.addPrime();
+            document.write(numbers.getAllPrimes());
+        </script>
+    </body>
+</html>
