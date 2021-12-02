@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>구구단</h1>
+        <script>
+            let results = [];
+            let length = 9;
+
+            for (let n = 2; n <= 9; n++) {
+                results = [];
+                results[0] = 0;
+                // 계산하여 result 배열에 결과 push
+                for (let i = 1; i <= 9; i++) {
+                    results.push(n * i);
+                }
+                // 출력
+                document.write(`구구단 ${n}단<br>`);
+                for (let i = 1; i <= 9; i++) {
+                    // console.log(`${n} * ${i} = ${results[i]}`);
+                    let str = `${n} * ${i} = ${results[i]}<br>`;
+                    document.write(str);
+                }
+                document.write("<br>");
+            }
+        </script>
+    </body>
+</html>
