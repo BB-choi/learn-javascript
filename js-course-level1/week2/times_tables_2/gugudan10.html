@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>함수 사용해 보기</h1>
+        <script>
+            function gugudan(num) {
+                let ret = [];
+                ret[0] = 0;
+                for (let i = 1; i <= 9; i++) {
+                    ret.push(num * i);
+                }
+                return ret;
+            }
+            function printResult(ret) {
+                document.write(`<h2>구구단 ${ret[1]}단</h2>`);
+                for (let i = 1; i < ret.length; i++) {
+                    let str = `${ret[1]} * ${i} = ${ret[i]}<br>`;
+                    document.write(str);
+                }
+            }
+            // 함수의 정의
+            function main() {
+                console.log("main 함수가 실행되었습니다.");
+                for (let n = 2; n <= 9; n++) {
+                    let results = gugudan(n);
+                    printResult(results);
+                    document.write("<br>");
+                }
+            }
+            // 함수의 호출
+            main();
+            // 함수는
+            // 1) 한 번에 한 가지 일(역할)을 해 줄 것
+            // 2)전역변수를 사용하지 말 것
+            // 3)입력은 매개변수로 받고
+            // 4) 결과는 리턴 또는 화면에 출력
+        </script>
+    </body>
+</html>
